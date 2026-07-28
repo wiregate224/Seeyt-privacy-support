@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Seeyt - Ruhestandsplanung</title>
-    <meta name="description" content="Seeyt unterstützt private Ruhestands- und Vermögensplanung mit Szenarien, Cashflows, Simulationen und lokalen Daten.">
+    <meta name="description" content="Seeyt unterstützt die Planung von Depot, Vermögenswerten, Immobilien, laufenden Einnahmen, Sonderausgaben und geplanten Depotzuflüssen.">
     <style>
         :root {
             color-scheme: light;
@@ -179,30 +179,33 @@
             background: var(--green);
         }
 
-        .features {
+        .content-sections {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
             padding: 42px 0 64px;
             border-top: 1px solid var(--border);
         }
 
-        .feature {
+        .info-section {
             padding: 20px;
             border: 1px solid var(--border);
             border-radius: 8px;
             background: var(--surface);
         }
 
-        .feature h2 {
+        .info-section h2 {
             margin: 0 0 10px;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             color: var(--accent-dark);
         }
 
-        .feature p {
-            margin: 0;
+        .info-section p {
+            margin: 0 0 12px;
             color: var(--muted);
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
         }
 
         footer {
@@ -233,10 +236,6 @@
                 padding-top: 18px;
             }
 
-            .features {
-                grid-template-columns: 1fr;
-            }
-
             .screen {
                 min-height: 430px;
             }
@@ -251,6 +250,7 @@
                 <span>Seeyt</span>
             </a>
             <nav aria-label="Seitennavigation">
+                <a href="#anwendung">Anwendung</a>
                 <a href="#funktionen">Funktionen</a>
                 <a href="privacy.html">Datenschutz</a>
             </nav>
@@ -261,46 +261,77 @@
                 <div>
                     <h1>Seeyt</h1>
                     <p class="lead">
-                        Ruhestands- und Vermögensplanung für private Szenarien: lokal gespeichert,
-                        nachvollziehbar berechnet und mit Simulationen für langfristige Entscheidungen.
+                        Seeyt unterstützt die Planung von Depot, Vermögenswerten, Immobilien,
+                        laufenden Einnahmen, Sonderausgaben und geplanten Depotzuflüssen.
                     </p>
                     <div class="actions" aria-label="Links">
-                        <a class="button" href="privacy.html">Datenschutz ansehen</a>
-                        <a class="button secondary" href="#funktionen">Funktionen</a>
+                        <a class="button" href="#anwendung">Information lesen</a>
+                        <a class="button secondary" href="privacy.html">Datenschutz ansehen</a>
                     </div>
                 </div>
 
                 <div class="phone" aria-label="App Vorschau">
                     <div class="screen">
                         <div class="screen-card">
-                            <span>Planungsszenario</span>
-                            <strong>Ruhestand 2036</strong>
+                            <span>Szenarien</span>
+                            <strong>Planung</strong>
                             <div class="bar"></div>
                         </div>
                         <div class="screen-card">
-                            <span>Depot, Cashflows und Entnahmen</span>
-                            <strong>lokal</strong>
+                            <span>Simulation und Optimierung</span>
+                            <strong>Ruinquoten</strong>
                         </div>
                         <div class="screen-card">
-                            <span>Simulationen</span>
-                            <strong>5.000 Läufe</strong>
+                            <span>Reports</span>
+                            <strong>PDF</strong>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="funktionen" class="features" aria-label="Funktionen">
-                <article class="feature">
-                    <h2>Szenarien planen</h2>
-                    <p>Erfasse Depotwerte, Renten, Einnahmen, Vermögenswerte und geplante Entnahmen in eigenen Szenarien.</p>
+            <section class="content-sections" aria-label="Informationen aus der App">
+                <article id="anwendung" class="info-section">
+                    <h2>Anwendung</h2>
+                    <p>Seeyt wird über Szenarien bedient. Ein Szenario beschreibt deine aktuelle Planung mit Startjahr, Startalter, geplantem Zuflussbeginn, Depotwerten, erwarteten Renditen, Inflation und den Annahmen für Lebensphase, Langlebensphase und Monte-Carlo-Läufe. In der Pro-Version können zusätzlich Vermögenswerte, Immobilien, laufende Einnahmen, Renten, Sonderausgaben und geplante Depot-Sparpläne erfasst werden.</p>
+                    <p>Die Eingaben im Depot bilden die Grundlage der Berechnung. Aktien, Tagesgeld und Anleihen werden getrennt geplant, damit unterschiedliche Rendite- und Risikoprofile berücksichtigt werden können. Die Aktienquote für Ansparphase und Entnahmephase steuert, wie das Depot vor und nach dem Zuflussbeginn ausgerichtet wird. Einnahmen, Sonderausgaben, Immobilienkäufe, Verkäufe und Mieten werden jahresgenau in den Finanzplan übernommen.</p>
+                    <p>Mit Simulation starten wird eine Monte-Carlo-Simulation berechnet. Dabei entstehen viele mögliche Depotverläufe auf Basis der eingestellten Rendite, Volatilität, Inflation und Guardrails. Das Ergebnis zeigt, wie robust der geplante Zufluss ist und mit welcher Wahrscheinlichkeit das Depot vor den gewählten Lebensphasen aufgebraucht sein kann.</p>
+                    <p>Mit Zufluss optimieren sucht Seeyt nach einem tragfähigen Jahresbudget innerhalb der eingestellten maximalen Ruinquoten. Die Optimierung verändert den geplanten Zufluss und die daraus abgeleiteten Entnahmeregeln, damit die Planung zu den gewählten Risikogrenzen passt.</p>
+                    <p>Ist kein Depot vorhanden und ist auch kein späterer Depotaufbau geplant, wird keine Monte-Carlo-Simulation oder Optimierung durchgeführt. Seeyt erstellt dann einen Finanzplan ohne Depot-Cashflows; laufende Einnahmen und Ausgaben bleiben sichtbar, werden aber nicht über ein Depot verteilt.</p>
+                    <p>Entsteht ein Depot erst später, etwa durch Verkäufe, Einmalzahlungen oder Sparpläne, wird ab diesem Zeitpunkt simuliert. Laufende Einnahmen wie Rente oder Miete bleiben separat verfügbare Mittel. Nur die zusätzliche Entnahme aus dem später entstandenen Depot folgt der Guardrail- und Ruinlogik.</p>
+                    <p>Die Charts zeigen unterschiedliche Sichten auf das Ergebnis. Der Vermögensverlauf stellt Depot, Sachvermögen, kapitalisierte Rente und Gesamtvermögen über die Jahre dar. Die Verteilungs-Charts zeigen, wie häufig bestimmte Enddepotwerte oder Ruinalter in den Simulationen auftreten und wie sich diese Wahrscheinlichkeiten kumuliert darstellen.</p>
+                    <p>Zu jedem Szenario können die Ergebnisse als Report oder als Finanzplan ausgegeben werden. Der Report fasst Annahmen, Startwerte, Simulation, Optimierung und Charts zusammen. Der Finanzplan zeigt die Jahreswerte tabellarisch, darunter Depotentwicklung, Renditen, Einnahmen, Verkäufe, Sonderausgaben, verfügbare Mittel und Gesamtvermögen.</p>
                 </article>
-                <article class="feature">
-                    <h2>Verläufe simulieren</h2>
-                    <p>Berechne langfristige Vermögensverläufe mit Renditeannahmen, Inflation, Cashflows und Risikoparametern.</p>
+
+                <article id="funktionen" class="info-section">
+                    <h2>Funktionen</h2>
+                    <p>Seeyt unterstützt die Planung von Depot, Vermögenswerten, Immobilien, laufenden Einnahmen, Sonderausgaben und geplanten Depotzuflüssen.</p>
+                    <p>Die App berechnet eine jährliche Projektion von Depot, Sachvermögen, kapitalisierter Rente und Gesamtvermögen. Simulation und Optimierung ermitteln auf Basis der gewählten Annahmen mögliche Zuflüsse aus dem Depot und die daraus resultierenden Ruinquoten.</p>
+                    <p>Reports können als PDF erzeugt und geteilt werden. Der Ergebnisreport fasst Szenario, Startwerte, Charts und Monte-Carlo-Ergebnisse zusammen; der Finanzplan stellt die Jahreswerte tabellarisch dar.</p>
                 </article>
-                <article class="feature">
-                    <h2>Daten lokal behalten</h2>
-                    <p>Planungsdaten werden nach aktuellem Funktionsumfang lokal auf dem Gerät gespeichert.</p>
+
+                <article class="info-section">
+                    <h2>Monte-Carlo-Simulation</h2>
+                    <p>Die Monte-Carlo-Simulation erzeugt für jeden Lauf neue Renditepfade für den Aktienanteil des Depots. Die Aktienrendite wird lognormal aus erwarteter Rendite und Volatilität gezogen. Zusätzlich enthält das Modell seltene Crashjahre: In 3,5 % der Jahre wird eine Rendite zwischen -55 % und -25 % angenommen. Kommt es nicht zu einem Crashjahr, wird mit 7 % Wahrscheinlichkeit eine schwächere Marktphase modelliert, indem die erwartete Rendite vor der lognormalen Ziehung um 5 Prozentpunkte abgesenkt wird.</p>
+                    <p>Die risikolose Depotkomponente wird separat behandelt und mit einer begrenzten normalverteilten Schwankung um die eingegebene sichere Rendite simuliert. Zuflüsse, Sparpläne, Immobilienverkäufe, laufende Einnahmen, Sonderausgaben und Guardrail-Regeln werden anschließend in den Jahresverlauf eingerechnet.</p>
+                    <p>Die Ruinquote bezieht sich auf das Depot. Sachwerte und kapitalisierte Renten werden für die Vermögensdarstellung berücksichtigt, verhindern aber keinen Depotruin.</p>
+                    <p>Bei leerem Startdepot ohne späteren Depotaufbau gibt es kein liquides Depot, das ruiniert werden könnte; deshalb wird statt einer Simulation nur der Finanzplan erstellt. Bei leerem Startdepot mit späterem Depotaufbau beginnt die Depotlogik erst, sobald investierbares Geld in das Depot fließt.</p>
+                </article>
+
+                <article class="info-section">
+                    <h2>Guardrails und Crashfall</h2>
+                    <p>Die Zuflussstrategie arbeitet regelbasiert. Ausgangspunkt ist das Jahresbudget im Auszahlungsjahr. In nominaler Betrachtung werden Zuflüsse grundsätzlich inflationshochgerechnet; in realer Betrachtung bleiben sie ohne Guardrail-Eingriff in heutiger Kaufkraft konstant.</p>
+                    <p>Die Guardrails begrenzen diese Entwicklung. Steigt die rechnerische Zuflussquote im Verhältnis zum Depot zu stark an, wird der geplante Zufluss um den eingestellten Kürzungsschritt reduziert. Zusätzlich gibt der Mindestanteil Zufluss eine Untergrenze vor, damit die Anpassung nicht beliebig stark nach unten läuft.</p>
+                    <p>Im Crashfall wird defensiver gerechnet: Liegt die Aktienrendite eines Jahres unter dem eingestellten Crash-Trigger, wird der bereits durch Guardrails geprüfte Zufluss nochmals um den Kürzungsschritt reduziert. Damit wird ein schwaches Marktjahr nicht durch unverändert hohe Depotabflüsse zusätzlich belastet.</p>
+                    <p>Die Presets Sicher, Balanced und Spielraum setzen unterschiedliche Kombinationen aus Mindestzufluss, Kürzungsschritt und Gewichtung des Vorjahres. Sicher reagiert vorsichtiger, Spielraum lässt mehr Schwankung zu, Balanced liegt dazwischen.</p>
+                    <p>Vor einem Cashflow aus dem Depot werden laufende Einnahmen wie Arbeit, Rente, Miete oder sonstige Zuflüsse berücksichtigt. Überschüsse erhöhen das Depot; fehlende Mittel werden aus dem Depot finanziert. Die Ruinprüfung misst, ob das Depot im Verlauf aufgebraucht wird.</p>
+                    <p>Wenn das Depot erst später entsteht, werden laufende Einnahmen nicht durch ein kleines neues Depot heruntergeregelt. Sie bleiben verfügbare Mittel; die Guardrails steuern nur den zusätzlichen Depotzufluss aus dem später aufgebauten Depot.</p>
+                </article>
+
+                <article class="info-section">
+                    <h2>Haftungsausschluss</h2>
+                    <p>Die App dient ausschließlich der privaten Planung, Szenarioanalyse und Plausibilisierung. Sie stellt keine Finanz-, Anlage-, Steuer-, Rechts- oder Rentenberatung dar.</p>
+                    <p>Alle Ergebnisse beruhen auf den eingegebenen Daten, Modellannahmen und zufälligen Simulationen. Historische Marktverläufe oder simulierte Renditen sind keine Garantie für zukünftige Entwicklungen.</p>
+                    <p>Für Entscheidungen über Anlagen, Zuflüsse, Immobilien, Steuern oder Altersvorsorge sollte fachkundiger Rat eingeholt werden. Eine Haftung für Entscheidungen, Verluste oder Folgeschäden aus der Nutzung der App wird ausgeschlossen, soweit gesetzlich zulässig.</p>
                 </article>
             </section>
         </main>
