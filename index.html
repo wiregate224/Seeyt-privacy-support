@@ -168,6 +168,12 @@
             border-top: 1px solid var(--border);
         }
 
+        .language-section + .language-section {
+            margin-top: 34px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+
         .info-section {
             padding: 20px;
             border: 1px solid var(--border);
@@ -243,6 +249,8 @@
                 <span>Seeyt</span>
             </a>
             <nav aria-label="Seitennavigation">
+                <a href="#deutsch">Deutsch</a>
+                <a href="#english">English</a>
                 <a href="#anwendung">Anwendung</a>
                 <a href="#funktionen">Funktionen</a>
                 <a href="#vorschau">Vorschau</a>
@@ -251,7 +259,7 @@
         </header>
 
         <main>
-            <section class="hero">
+            <section id="deutsch" class="hero language-section" lang="de">
                 <div>
                     <h1>Seeyt</h1>
                     <p class="tagline">enlights your financial future</p>
@@ -316,6 +324,74 @@
                     <p>Die App dient ausschließlich der privaten Planung, Szenarioanalyse und Plausibilisierung. Sie stellt keine Finanz-, Anlage-, Steuer-, Rechts- oder Rentenberatung dar.</p>
                     <p>Alle Ergebnisse beruhen auf den eingegebenen Daten, Modellannahmen und zufälligen Simulationen. Historische Marktverläufe oder simulierte Renditen sind keine Garantie für zukünftige Entwicklungen.</p>
                     <p>Für Entscheidungen über Anlagen, Zuflüsse, Immobilien, Steuern oder Altersvorsorge sollte fachkundiger Rat eingeholt werden. Eine Haftung für Entscheidungen, Verluste oder Folgeschäden aus der Nutzung der App wird ausgeschlossen, soweit gesetzlich zulässig.</p>
+                </article>
+            </section>
+
+            <section id="english" class="hero language-section" lang="en">
+                <div>
+                    <h1>Seeyt</h1>
+                    <p class="tagline">enlights your financial future</p>
+                    <p class="lead">
+                        Plan scenarios for portfolios, assets, real estate, income, special expenses,
+                        and planned portfolio cashflows. Simulation, optimization, and reports show
+                        how resilient your financial plan is.
+                    </p>
+                    <div class="actions" aria-label="Links">
+                        <a class="button" href="#how-to-use">Read information</a>
+                        <a class="button secondary" href="privacy.html#english">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <div class="preview-stack" aria-label="App preview">
+                    <img class="preview-shot phone-shot" src="preview-overview.png" alt="Seeyt overview with total wealth, portfolio, tangible assets and inputs">
+                    <img class="preview-shot phone-shot" src="preview-budget.png" alt="Seeyt simulation with annual budget, ruin rates and optimization">
+                    <img class="preview-shot report-shot" src="preview-report.png" alt="Seeyt PDF report with wealth development and financial plan">
+                </div>
+            </section>
+
+            <section class="content-sections" aria-label="App information in English" lang="en">
+                <article id="how-to-use" class="info-section">
+                    <h2>How to use</h2>
+                    <p>Seeyt is organized around scenarios. A scenario describes your current plan with start year, start age, planned cashflow start, portfolio values, expected returns, inflation and the assumptions for life phase, longevity phase and Monte Carlo runs. In the Pro version, assets, real estate, recurring income, pensions, special expenses and planned portfolio savings plans can also be entered.</p>
+                    <p>The portfolio inputs form the basis of the calculation. Equities, cash and bonds are planned separately so that different return and risk profiles can be reflected. The equity share for the accumulation phase and withdrawal phase controls how the portfolio is allocated before and after cashflows begin. Income, special expenses, real estate purchases, sales and rents are included in the financial plan by year.</p>
+                    <p>Start simulation calculates a Monte Carlo simulation. It creates many possible portfolio paths based on the configured return, volatility, inflation and guardrails. The result shows how robust the planned cashflow is and the probability that the portfolio may be depleted before the selected life phases.</p>
+                    <p>Optimize cashflow lets Seeyt search for a sustainable annual budget within the configured maximum ruin rates. The optimization changes the planned cashflow and the derived withdrawal rules so that the plan fits the selected risk limits.</p>
+                    <p>If no portfolio exists and no later portfolio build-up is planned, no Monte Carlo simulation or optimization is run. Seeyt then creates a financial plan without portfolio cashflows; recurring income and expenses remain visible but are not allocated through a portfolio.</p>
+                    <p>If a portfolio is created only later, for example through sales, one-time payments or savings plans, simulation starts from that point. Recurring income such as pension or rent remains separately available funds. Only the additional withdrawal from the later portfolio follows the guardrail and ruin logic.</p>
+                    <p>The charts show different views of the result. Wealth development shows the portfolio, tangible assets, capitalized pension and total wealth over time. The distribution charts show how often specific final portfolio values or ruin ages occur in the simulations and how these probabilities accumulate.</p>
+                    <p>For each scenario, results can be exported as a report or as a financial plan. The report summarizes assumptions, starting values, simulation, optimization and charts. The financial plan shows annual values in table form, including portfolio development, returns, income, sales, special expenses, available funds and total wealth.</p>
+                </article>
+
+                <article class="info-section">
+                    <h2>Features</h2>
+                    <p>Seeyt supports planning for portfolios, assets, real estate, recurring income, special expenses and planned portfolio cashflows.</p>
+                    <p>The app calculates an annual projection of portfolio, tangible assets, capitalized pension and total wealth. Simulation and optimization use the selected assumptions to estimate possible portfolio cashflows and the resulting ruin rates.</p>
+                    <p>Reports can be created and shared as PDFs. The result report summarizes the scenario, starting values, charts and Monte Carlo results; the financial plan presents annual values in a table.</p>
+                </article>
+
+                <article class="info-section">
+                    <h2>Monte Carlo simulation</h2>
+                    <p>The Monte Carlo simulation creates new return paths for the equity share of the portfolio in each run. Equity returns are drawn lognormally from the expected return and volatility. The model also includes rare crash years: in 3.5% of years, the return is set between -55% and -25%. If no crash year is drawn, a weaker market phase is modeled with a 7% probability by reducing the expected return by 5 percentage points before drawing the lognormal return.</p>
+                    <p>The low-risk portfolio component is handled separately and simulated with limited normally distributed variation around the entered low-risk return. Cashflows, savings plans, real estate sales, recurring income, special expenses and guardrail rules are then included in the annual path.</p>
+                    <p>The ruin rate refers to the portfolio. Tangible assets and capitalized pensions are included in the wealth view, but they do not prevent portfolio ruin.</p>
+                    <p>With an empty starting portfolio and no later portfolio build-up, there is no liquid portfolio that could be depleted; therefore only the financial plan is created instead of a simulation. With an empty starting portfolio and later portfolio build-up, the portfolio logic begins only once investable money flows into the portfolio.</p>
+                </article>
+
+                <article class="info-section">
+                    <h2>Guardrails and crash case</h2>
+                    <p>The cashflow strategy is rule-based. It starts with the annual budget in the first withdrawal year. In nominal view, cashflows are generally indexed with inflation; in real view, they remain constant in today's purchasing power unless guardrails intervene.</p>
+                    <p>The guardrails limit this development. If the calculated cashflow rate rises too strongly relative to the portfolio, the planned cashflow is reduced by the configured reduction step. The minimum cashflow share also sets a lower bound so the adjustment cannot fall without limit.</p>
+                    <p>In a crash case, the calculation becomes more defensive: if the equity return in a year is below the configured crash trigger, the cashflow already checked by guardrails is reduced again by the reduction step. This avoids adding unchanged high portfolio outflows to a weak market year.</p>
+                    <p>The Safe, Balanced and Flexibility presets set different combinations of minimum cashflow, reduction step and previous-year weighting. Safe reacts more cautiously, Flexibility allows more fluctuation, and Balanced sits in between.</p>
+                    <p>Before portfolio cashflow is used, recurring income such as work income, pension, rent or other inflows is considered. Surpluses increase the portfolio; missing funds are financed from the portfolio. The ruin check measures whether the portfolio is depleted over time.</p>
+                    <p>If the portfolio is created only later, recurring income is not reduced by a small new portfolio. It remains available funds; the guardrails control only the additional portfolio cashflow from the portfolio built later.</p>
+                </article>
+
+                <article class="info-section">
+                    <h2>Disclaimer</h2>
+                    <p>The app is intended solely for private planning, scenario analysis and plausibility checks. It does not provide financial, investment, tax, legal or pension advice.</p>
+                    <p>All results are based on entered data, model assumptions and random simulations. Historical market paths or simulated returns are no guarantee of future developments.</p>
+                    <p>For decisions about investments, cashflows, real estate, taxes or retirement planning, professional advice should be obtained. Liability for decisions, losses or consequential damages from using the app is excluded to the extent permitted by law.</p>
                 </article>
             </section>
         </main>
