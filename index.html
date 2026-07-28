@@ -16,7 +16,6 @@
             --surface: #fffaf2;
             --border: #ddd2bf;
             --green: #2f6f5e;
-            --blue: #345b7c;
         }
 
         * {
@@ -93,9 +92,16 @@
 
         .lead {
             max-width: 660px;
-            margin: 22px 0 0;
+            margin: 16px 0 0;
             color: var(--muted);
             font-size: clamp(1.05rem, 2vw, 1.25rem);
+        }
+
+        .tagline {
+            margin: 12px 0 0;
+            color: var(--accent);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
         }
 
         .actions {
@@ -124,59 +130,35 @@
             color: var(--accent-dark);
         }
 
-        .phone {
-            border: 1px solid var(--border);
-            border-radius: 34px;
-            padding: 14px;
-            background: #171717;
-            box-shadow: 0 24px 60px rgba(34, 34, 37, 0.18);
+        .preview-stack {
+            display: grid;
+            grid-template-columns: 0.88fr 1fr;
+            gap: 14px;
+            align-items: stretch;
         }
 
-        .screen {
-            min-height: 520px;
-            border-radius: 24px;
-            padding: 28px 22px;
-            background:
-                linear-gradient(160deg, rgba(255, 250, 242, 0.96), rgba(238, 225, 198, 0.94)),
-                url("Logo.jpeg");
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-        }
-
-        .screen-card {
-            padding: 18px;
-            border-radius: 8px;
-            background: rgba(255, 250, 242, 0.92);
-            border: 1px solid rgba(143, 106, 49, 0.28);
-            margin-bottom: 14px;
-        }
-
-        .screen-card strong {
+        .preview-shot {
             display: block;
-            font-size: 1.6rem;
-            color: var(--accent-dark);
-        }
-
-        .screen-card span {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .bar {
-            height: 10px;
-            border-radius: 999px;
-            background: var(--border);
-            margin-top: 12px;
-            overflow: hidden;
-        }
-
-        .bar::before {
-            content: "";
-            display: block;
+            width: 100%;
             height: 100%;
-            width: 72%;
-            background: var(--green);
+            object-fit: cover;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            box-shadow: 0 20px 48px rgba(34, 34, 37, 0.15);
+        }
+
+        .preview-shot.phone-shot {
+            aspect-ratio: 946 / 2048;
+        }
+
+        .preview-column {
+            display: grid;
+            gap: 14px;
+        }
+
+        .preview-column .preview-shot {
+            aspect-ratio: 946 / 1024;
         }
 
         .content-sections {
@@ -236,8 +218,12 @@
                 padding-top: 18px;
             }
 
-            .screen {
-                min-height: 430px;
+            .preview-stack {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-column .preview-shot {
+                aspect-ratio: 946 / 1180;
             }
         }
     </style>
@@ -252,6 +238,7 @@
             <nav aria-label="Seitennavigation">
                 <a href="#anwendung">Anwendung</a>
                 <a href="#funktionen">Funktionen</a>
+                <a href="#vorschau">Vorschau</a>
                 <a href="privacy.html">Datenschutz</a>
             </nav>
         </header>
@@ -260,6 +247,7 @@
             <section class="hero">
                 <div>
                     <h1>Seeyt</h1>
+                    <p class="tagline">enlights your financial future</p>
                     <p class="lead">
                         Seeyt unterstützt die Planung von Depot, Vermögenswerten, Immobilien,
                         laufenden Einnahmen, Sonderausgaben und geplanten Depotzuflüssen.
@@ -270,21 +258,11 @@
                     </div>
                 </div>
 
-                <div class="phone" aria-label="App Vorschau">
-                    <div class="screen">
-                        <div class="screen-card">
-                            <span>Szenarien</span>
-                            <strong>Planung</strong>
-                            <div class="bar"></div>
-                        </div>
-                        <div class="screen-card">
-                            <span>Simulation und Optimierung</span>
-                            <strong>Ruinquoten</strong>
-                        </div>
-                        <div class="screen-card">
-                            <span>Reports</span>
-                            <strong>PDF</strong>
-                        </div>
+                <div id="vorschau" class="preview-stack" aria-label="App Vorschau">
+                    <img class="preview-shot phone-shot" src="preview-overview.png" alt="Seeyt Übersicht mit Gesamtvermögen, Depot, Sachwerten und Eingaben">
+                    <div class="preview-column">
+                        <img class="preview-shot" src="preview-budget.png" alt="Seeyt Simulation mit Jahresbudget, Ruinquoten und Optimierung">
+                        <img class="preview-shot" src="preview-report.png" alt="Seeyt PDF Report mit Vermögensverlauf und Finanzplan">
                     </div>
                 </div>
             </section>
