@@ -39,6 +39,10 @@
             margin-bottom: 32px;
         }
 
+        section {
+            scroll-margin-top: 24px;
+        }
+
         h1,
         h2 {
             line-height: 1.2;
@@ -83,6 +87,30 @@
             color: var(--muted);
             margin-top: 10px;
         }
+
+        .language-nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .language-nav a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 40px;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            text-decoration: none;
+        }
+
+        .language-section + .language-section {
+            margin-top: 56px;
+            padding-top: 42px;
+            border-top: 1px solid var(--border);
+        }
     </style>
 </head>
 <body>
@@ -90,110 +118,225 @@
         <header>
             <h1>Datenschutzerklärung</h1>
             <p class="updated">für die App Seeyt, Stand: 28. Juli 2026</p>
+            <nav class="language-nav" aria-label="Sprachauswahl">
+                <a href="#deutsch">Deutsch</a>
+                <a href="#english">English</a>
+            </nav>
         </header>
 
-        <p class="notice">
-            Hinweis: Bitte vor der Veröffentlichung den Abschnitt „Verantwortlicher“ mit den korrekten Kontaktdaten ergänzen.
-        </p>
+        <section id="deutsch" class="language-section" lang="de">
+            <h2>Deutsch</h2>
 
-        <h2>1. Verantwortlicher</h2>
-        <p>
-            Verantwortlich für die Datenverarbeitung in dieser App ist:
-        </p>
-        <p>
-            Robert Stüer<br>
-            E-Mail: bitte-eintragen@example.com
-        </p>
+            <p class="notice">
+                Hinweis: Bitte vor der Veröffentlichung den Abschnitt „Verantwortlicher“ mit den korrekten Kontaktdaten ergänzen.
+            </p>
 
-        <h2>2. Zweck der App</h2>
-        <p>
-            Seeyt ist eine App zur privaten Ruhestands- und Vermögensplanung. Nutzerinnen und Nutzer können Finanzannahmen,
-            Szenarien, Vermögenswerte, Cashflows und Simulationsergebnisse erfassen und auswerten.
-        </p>
+            <h2>1. Verantwortlicher</h2>
+            <p>
+                Verantwortlich für die Datenverarbeitung in dieser App ist:
+            </p>
+            <p>
+                Robert Stüer<br>
+                E-Mail: bitte-eintragen@example.com
+            </p>
 
-        <h2>3. Verarbeitung personenbezogener Daten in der App</h2>
-        <p>
-            Die App speichert die eingegebenen Planungsdaten lokal auf dem Gerät. Dazu können insbesondere gehören:
-        </p>
-        <ul>
-            <li>Angaben zu Alter, Startjahr und Planungszeitraum</li>
-            <li>Finanzwerte wie Depotwerte, Rücklagen, Renten, Einnahmen, Ausgaben und Entnahmen</li>
-            <li>Informationen zu Vermögenswerten, Sparplänen und geplanten Cashflows</li>
-            <li>Berechnungsergebnisse und gespeicherte Szenarien</li>
-            <li>App-Einstellungen, Spracheinstellungen und optionaler App-Sperrcode in gehashter Form</li>
-        </ul>
-        <p>
-            Diese Daten werden nach aktuellem Funktionsumfang nicht an den Verantwortlichen übertragen.
-        </p>
+            <h2>2. Zweck der App</h2>
+            <p>
+                Seeyt ist eine App zur privaten Ruhestands- und Vermögensplanung. Nutzerinnen und Nutzer können Finanzannahmen,
+                Szenarien, Vermögenswerte, Cashflows und Simulationsergebnisse erfassen und auswerten.
+            </p>
 
-        <h2>4. Lokale Speicherung</h2>
-        <p>
-            Die Speicherung erfolgt lokal auf dem Gerät über Apple-Systemfunktionen wie SwiftData und UserDefaults.
-            Die Nutzerin oder der Nutzer kann gespeicherte App-Daten durch Löschen der Szenarien in der App oder durch
-            Entfernen der App vom Gerät löschen.
-        </p>
+            <h2>3. Verarbeitung personenbezogener Daten in der App</h2>
+            <p>
+                Die App speichert die eingegebenen Planungsdaten lokal auf dem Gerät. Dazu können insbesondere gehören:
+            </p>
+            <ul>
+                <li>Angaben zu Alter, Startjahr und Planungszeitraum</li>
+                <li>Finanzwerte wie Depotwerte, Rücklagen, Renten, Einnahmen, Ausgaben und Entnahmen</li>
+                <li>Informationen zu Vermögenswerten, Sparplänen und geplanten Cashflows</li>
+                <li>Berechnungsergebnisse und gespeicherte Szenarien</li>
+                <li>App-Einstellungen, Spracheinstellungen und optionaler App-Sperrcode in gehashter Form</li>
+            </ul>
+            <p>
+                Diese Daten werden nach aktuellem Funktionsumfang nicht an den Verantwortlichen übertragen.
+            </p>
 
-        <h2>5. In-App-Käufe</h2>
-        <p>
-            Für Pro-Funktionen nutzt Seeyt Apple StoreKit. Kaufvorgänge, Zahlungsdaten und Rechnungsinformationen werden
-            durch Apple verarbeitet. Seeyt erhält nur technische Informationen darüber, ob ein unterstütztes Produkt aktiv
-            gekauft wurde, damit die entsprechenden Funktionen freigeschaltet werden können.
-        </p>
-        <p>
-            Weitere Informationen zur Datenverarbeitung durch Apple finden Sie in der Datenschutzerklärung von Apple:
-            <a href="https://www.apple.com/legal/privacy/de-ww/" rel="noopener">https://www.apple.com/legal/privacy/de-ww/</a>
-        </p>
+            <h2>4. Lokale Speicherung</h2>
+            <p>
+                Die Speicherung erfolgt lokal auf dem Gerät über Apple-Systemfunktionen wie SwiftData und UserDefaults.
+                Die Nutzerin oder der Nutzer kann gespeicherte App-Daten durch Löschen der Szenarien in der App oder durch
+                Entfernen der App vom Gerät löschen.
+            </p>
 
-        <h2>6. Biometrische Entsperrung und App-Sperre</h2>
-        <p>
-            Wenn die App-Sperre aktiviert wird, speichert die App einen Hash des App-Passcodes sowie einen Salt lokal auf
-            dem Gerät. Bei Nutzung von Face ID oder Touch ID erfolgt die biometrische Prüfung über Apple-Systemfunktionen
-            des Geräts. Die App erhält keine biometrischen Rohdaten.
-        </p>
+            <h2>5. In-App-Käufe</h2>
+            <p>
+                Für Pro-Funktionen nutzt Seeyt Apple StoreKit. Kaufvorgänge, Zahlungsdaten und Rechnungsinformationen werden
+                durch Apple verarbeitet. Seeyt erhält nur technische Informationen darüber, ob ein unterstütztes Produkt aktiv
+                gekauft wurde, damit die entsprechenden Funktionen freigeschaltet werden können.
+            </p>
+            <p>
+                Weitere Informationen zur Datenverarbeitung durch Apple finden Sie in der Datenschutzerklärung von Apple:
+                <a href="https://www.apple.com/legal/privacy/de-ww/" rel="noopener">https://www.apple.com/legal/privacy/de-ww/</a>
+            </p>
 
-        <h2>7. KI-Funktionen</h2>
-        <p>
-            Soweit auf unterstützten Geräten KI-Analysen verfügbar sind, werden diese über Apple-Systemfunktionen auf dem
-            Gerät ausgeführt. Nach aktuellem Funktionsumfang werden dafür keine eingegebenen Finanzdaten an Server des
-            Verantwortlichen übertragen.
-        </p>
+            <h2>6. Biometrische Entsperrung und App-Sperre</h2>
+            <p>
+                Wenn die App-Sperre aktiviert wird, speichert die App einen Hash des App-Passcodes sowie einen Salt lokal auf
+                dem Gerät. Bei Nutzung von Face ID oder Touch ID erfolgt die biometrische Prüfung über Apple-Systemfunktionen
+                des Geräts. Die App erhält keine biometrischen Rohdaten.
+            </p>
 
-        <h2>8. Keine Werbung, kein Tracking, keine Analytics</h2>
-        <p>
-            Nach aktuellem Funktionsumfang verwendet Seeyt keine Werbenetzwerke, keine Tracking-SDKs und keine externen
-            Analytics-Dienste.
-        </p>
+            <h2>7. KI-Funktionen</h2>
+            <p>
+                Soweit auf unterstützten Geräten KI-Analysen verfügbar sind, werden diese über Apple-Systemfunktionen auf dem
+                Gerät ausgeführt. Nach aktuellem Funktionsumfang werden dafür keine eingegebenen Finanzdaten an Server des
+                Verantwortlichen übertragen.
+            </p>
 
-        <h2>9. Export und Teilen von Daten</h2>
-        <p>
-            Wenn Nutzerinnen oder Nutzer Szenarien exportieren oder teilen, entscheiden sie selbst über den Empfänger und
-            den Übertragungsweg. Für dabei genutzte Drittanbieter-Apps oder Dienste gelten deren jeweilige Datenschutzregeln.
-        </p>
+            <h2>8. Keine Werbung, kein Tracking, keine Analytics</h2>
+            <p>
+                Nach aktuellem Funktionsumfang verwendet Seeyt keine Werbenetzwerke, keine Tracking-SDKs und keine externen
+                Analytics-Dienste.
+            </p>
 
-        <h2>10. Rechtsgrundlagen</h2>
-        <p>
-            Soweit personenbezogene Daten verarbeitet werden, erfolgt dies zur Bereitstellung der App-Funktionen und auf
-            Grundlage von Art. 6 Abs. 1 lit. b DSGVO. Soweit Einstellungen oder optionale Sicherheitsfunktionen genutzt
-            werden, erfolgt die Verarbeitung zur Bereitstellung der jeweils gewählten Funktion.
-        </p>
+            <h2>9. Export und Teilen von Daten</h2>
+            <p>
+                Wenn Nutzerinnen oder Nutzer Szenarien exportieren oder teilen, entscheiden sie selbst über den Empfänger und
+                den Übertragungsweg. Für dabei genutzte Drittanbieter-Apps oder Dienste gelten deren jeweilige Datenschutzregeln.
+            </p>
 
-        <h2>11. Rechte der betroffenen Personen</h2>
-        <p>
-            Betroffene Personen haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung,
-            Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Außerdem besteht ein
-            Beschwerderecht bei einer zuständigen Datenschutzaufsichtsbehörde.
-        </p>
+            <h2>10. Rechtsgrundlagen</h2>
+            <p>
+                Soweit personenbezogene Daten verarbeitet werden, erfolgt dies zur Bereitstellung der App-Funktionen und auf
+                Grundlage von Art. 6 Abs. 1 lit. b DSGVO. Soweit Einstellungen oder optionale Sicherheitsfunktionen genutzt
+                werden, erfolgt die Verarbeitung zur Bereitstellung der jeweils gewählten Funktion.
+            </p>
 
-        <h2>12. Kontakt</h2>
-        <p>
-            Fragen zum Datenschutz können an die oben angegebene Kontaktadresse gerichtet werden.
-        </p>
+            <h2>11. Rechte der betroffenen Personen</h2>
+            <p>
+                Betroffene Personen haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung,
+                Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Außerdem besteht ein
+                Beschwerderecht bei einer zuständigen Datenschutzaufsichtsbehörde.
+            </p>
 
-        <h2>13. Änderungen</h2>
-        <p>
-            Diese Datenschutzerklärung kann angepasst werden, wenn sich Funktionen der App oder rechtliche Anforderungen
-            ändern. Die jeweils aktuelle Fassung wird unter dieser URL bereitgestellt.
-        </p>
+            <h2>12. Kontakt</h2>
+            <p>
+                Fragen zum Datenschutz können an die oben angegebene Kontaktadresse gerichtet werden.
+            </p>
+
+            <h2>13. Änderungen</h2>
+            <p>
+                Diese Datenschutzerklärung kann angepasst werden, wenn sich Funktionen der App oder rechtliche Anforderungen
+                ändern. Die jeweils aktuelle Fassung wird unter dieser URL bereitgestellt.
+            </p>
+        </section>
+
+        <section id="english" class="language-section" lang="en">
+            <h2>English</h2>
+            <p class="updated">Privacy Policy for the Seeyt app, effective July 28, 2026</p>
+
+            <p class="notice">
+                Note: Before publication, please replace the contact details in the “Controller” section with the correct information.
+            </p>
+
+            <h2>1. Controller</h2>
+            <p>
+                The controller responsible for data processing in this app is:
+            </p>
+            <p>
+                Robert Stüer<br>
+                Email: bitte-eintragen@example.com
+            </p>
+
+            <h2>2. Purpose of the App</h2>
+            <p>
+                Seeyt is an app for private retirement and wealth planning. Users can enter and analyze financial assumptions,
+                scenarios, assets, cash flows, and simulation results.
+            </p>
+
+            <h2>3. Processing of Personal Data in the App</h2>
+            <p>
+                The app stores the planning data entered by users locally on the device. This may include, in particular:
+            </p>
+            <ul>
+                <li>Information about age, start year, and planning period</li>
+                <li>Financial values such as portfolio values, reserves, pensions, income, expenses, and withdrawals</li>
+                <li>Information about assets, savings plans, and planned cash flows</li>
+                <li>Calculation results and saved scenarios</li>
+                <li>App settings, language settings, and an optional app lock passcode in hashed form</li>
+            </ul>
+            <p>
+                Based on the app's current functionality, this data is not transmitted to the controller.
+            </p>
+
+            <h2>4. Local Storage</h2>
+            <p>
+                Data is stored locally on the device using Apple system technologies such as SwiftData and UserDefaults.
+                Users can delete stored app data by deleting scenarios in the app or by removing the app from the device.
+            </p>
+
+            <h2>5. In-App Purchases</h2>
+            <p>
+                Seeyt uses Apple StoreKit for Pro features. Purchase processes, payment data, and billing information are
+                processed by Apple. Seeyt only receives technical information about whether a supported product has been
+                actively purchased so that the corresponding features can be unlocked.
+            </p>
+            <p>
+                More information about Apple's data processing is available in Apple's Privacy Policy:
+                <a href="https://www.apple.com/legal/privacy/" rel="noopener">https://www.apple.com/legal/privacy/</a>
+            </p>
+
+            <h2>6. Biometric Unlock and App Lock</h2>
+            <p>
+                If the app lock is enabled, the app stores a hash of the app passcode and a salt locally on the device.
+                When Face ID or Touch ID is used, biometric verification is performed through Apple system functions on
+                the device. The app does not receive raw biometric data.
+            </p>
+
+            <h2>7. AI Features</h2>
+            <p>
+                Where AI analyses are available on supported devices, they are performed through Apple system functions
+                on the device. Based on the current functionality, financial data entered by users is not transmitted to
+                servers of the controller for this purpose.
+            </p>
+
+            <h2>8. No Advertising, Tracking, or Analytics</h2>
+            <p>
+                Based on the app's current functionality, Seeyt does not use advertising networks, tracking SDKs, or
+                external analytics services.
+            </p>
+
+            <h2>9. Exporting and Sharing Data</h2>
+            <p>
+                If users export or share scenarios, they decide themselves who receives the data and which transmission
+                method is used. The privacy rules of any third-party apps or services used for this purpose apply separately.
+            </p>
+
+            <h2>10. Legal Basis</h2>
+            <p>
+                Where personal data is processed, this is done to provide the app's functions and on the basis of Art. 6
+                para. 1 lit. b GDPR. Where settings or optional security functions are used, processing is carried out to
+                provide the function selected by the user.
+            </p>
+
+            <h2>11. Rights of Data Subjects</h2>
+            <p>
+                Data subjects have the rights of access, rectification, erasure, restriction of processing, data portability,
+                and objection within the scope of the applicable legal requirements. They also have the right to lodge a
+                complaint with a competent data protection supervisory authority.
+            </p>
+
+            <h2>12. Contact</h2>
+            <p>
+                Questions about data protection can be sent to the contact address stated above.
+            </p>
+
+            <h2>13. Changes</h2>
+            <p>
+                This Privacy Policy may be updated if app functions or legal requirements change. The current version will
+                be made available at this URL.
+            </p>
+        </section>
     </main>
 </body>
 </html>
